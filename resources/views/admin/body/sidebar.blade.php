@@ -50,7 +50,7 @@
                             <li>
                                 <a href="auth-register.html" class="tp-link">Register</a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </li>
@@ -69,7 +69,7 @@
                             <li>
                                 <a href="error-500.html" class="tp-link">Error 500</a>
                             </li>
-                        
+
                         </ul>
                     </div>
                 </li>
