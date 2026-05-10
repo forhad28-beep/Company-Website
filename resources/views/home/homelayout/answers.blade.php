@@ -1,7 +1,13 @@
   <div class="lonyo-section-padding4">
     <div class="container">
       <div class="lonyo-section-title center">
-        <h2>Find answers to all questions below</h2>
+                  @php
+              $title = App\Models\Title::find(1);
+          @endphp
+               <h2 id="answer-title" contenteditable="{{ auth()->check() ? 'true' : 'false' }}"
+        data-id="{{ $title->id }}">
+                          {{ $title->answers }}
+                      </h2>
       </div>
       <div class="lonyo-faq-shape"></div>
       <div class="lonyo-faq-wrap1">
@@ -71,3 +77,68 @@
       </div>
     </div>
   </div>
+
+
+  {{-- CSRF TOKEN --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const titleElement = document.getElementById('answer-title');
+
+        function saveChanges(element) {
+
+            let answerId = element.dataset.id;
+            let field = 'answers';
+            let newValue = element.innerText.trim();
+
+            fetch(`/edit-answers/${answerId}`, {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document
+                            .querySelector('meta[name="csrf-token"]')
+                            .getAttribute('content')
+                    },
+
+                    body: JSON.stringify({
+                        [field]: newValue
+                    })
+                })
+
+                .then(response => response.json())
+
+                .then(data => {
+                    if (data.success) {
+                        console.log(`${field} Updated Successfully`);
+                    }
+                })
+
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        // Save on Enter
+        document.addEventListener('keydown', function(e) {
+
+            if (e.key === "Enter" && e.target.id === 'answer-title') {
+
+                e.preventDefault();
+
+                saveChanges(e.target);
+
+                e.target.blur();
+            }
+        });
+
+        // Save on blur
+        titleElement.addEventListener('blur', function() {
+            saveChanges(titleElement);
+        });
+
+    });
+</script>
