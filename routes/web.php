@@ -4,7 +4,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\ReviewController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\HomeController;
+use App\Http\Controllers\backend\TeamController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -100,5 +102,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/update-app/{id}', 'updateApp')->name('update.app');
         Route::post('/update-app-image/{id}', 'updateAppImage')->name('update.app.image');
     });
+
+    Route::controller(TeamController::class)->group(function () {
+        Route::get('/all/team', 'allTeam')->name('all.team');
+        Route::get('/add/team', 'addTeam')->name('add.team');
+        Route::post('/store/team', 'storeTeam')->name('store.team');
+        Route::get('/edit/team/{id}', 'editTeam')->name('edit.team');
+        Route::post('/update/team/{id}', 'updateTeam')->name('update.team');
+        Route::get('/delete/team/{id}', 'deleteTeam')->name('delete.team');
+    });
 });
 
+// Out of any middleware group
+Route::get('/team', [FrontendController::class, 'ourTeam'])->name('our.team');
