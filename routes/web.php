@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\ReviewController;
 use App\Http\Controllers\backend\SliderController;
+use App\Http\Controllers\backend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -52,4 +53,52 @@ Route::middleware('auth')->group(function () {
         Route::post('/edit-reviews/{id}', 'editReviews')->name('edit.reviews');
         Route::post('/edit-answers/{id}', 'editAnswers')->name('edit.answers');
     });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/all/feature', 'allFeature')->name('all.feature');
+        Route::get('/add/feature', 'addFeature')->name('add.feature');
+        Route::post('/store/feature', 'storeFeature')->name('store.feature');
+        Route::get('/edit/feature/{id}', 'editFeature')->name('edit.feature');
+        Route::post('/update/feature/{id}', 'updateFeature')->name('update.feature');
+        Route::get('/delete/feature/{id}', 'deleteFeature')->name('delete.feature');
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/get/clarifies', 'getClarifies')->name('get.clarifies');
+        Route::post('/update/clarifies', 'updateClarifies')->name('update.clarifies');
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/get/financials', 'getFinancials')->name('get.financials');
+        Route::post('/update/financials', 'updateFinancials')->name('update.financials');
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/get/usabilities', 'getUsabilities')->name('get.usabilities');
+        Route::post('/update/usabilities', 'updateUsabilities')->name('update.usabilities');
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/all/connect', 'allConnect')->name('all.connect');
+        Route::get('/add/connect', 'addConnect')->name('add.connect');
+        Route::post('/store/connect', 'storeConnect')->name('store.connect');
+        Route::get('/edit/connect/{id}', 'editConnect')->name('edit.connect');
+        Route::post('/update/connect/{id}', 'updateConnect')->name('update.connect');
+        Route::get('/delete/connect/{id}', 'deleteConnect')->name('delete.connect');
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/all/faq', 'allFaq')->name('all.faqs');
+        Route::get('/add/faq', 'addFaq')->name('add.faq');
+        Route::post('/store/faq', 'storeFaq')->name('store.faq');
+        Route::get('/edit/faq/{id}', 'editFaq')->name('edit.faq');
+        Route::post('/update/faq/{id}', 'updateFaq')->name('update.faq');
+        Route::get('/delete/faq/{id}', 'deleteFaq')->name('delete.faq');
+    });
+
+    Route::controller(HomeController::class)->group(function () {
+        Route::post('/update-app/{id}', 'updateApp')->name('update.app');
+        Route::post('/update-app-image/{id}', 'updateAppImage')->name('update.app.image');
+    });
 });
+

@@ -71,6 +71,106 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#sidebarFeatures" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Features Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarFeatures">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.feature') }}" class="tp-link">All Features</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.feature') }}" class="tp-link">Add Features</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarclarifies" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Clarifies Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarclarifies">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('get.clarifies') }}" class="tp-link">Get Clarifies</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarFinancial" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Financial Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarFinancial">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('get.financials') }}" class="tp-link">Get Financials</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarUsability" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Usability Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarUsability">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('get.usabilities') }}" class="tp-link">Get Usabilities</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarConnect" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Connect Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarConnect">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.connect') }}" class="tp-link">All Connects</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.connect') }}" class="tp-link">Add Connects</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#sidebarFaq" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> FAQ Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarFaq">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.faqs') }}" class="tp-link">All FAQs</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('add.faq') }}" class="tp-link">Add FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
                 <li class="menu-title mt-2">General</li>
 
                 <li>
